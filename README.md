@@ -4,7 +4,7 @@
 The To-do App offers a straightforward interface for managing tasks, allowing users to add, delete, and mark tasks as complete and others. This simplicity ensures that users can focus on their tasks without unnecessary distractions. The app was built with 🎨SCSS and ⚛️React. <a href="https://yusuf-youth.github.io/Todo-App/">App</a>, <a href="[https://www.figma.com/design/wsOmjs3YZUNZnPHo0N36nb/Todo-List-for-Figma-projects-(Community)?node-id=1-230&t=7EC7oTHzV6akIwhA-0](https://www.figma.com/design/wsOmjs3YZUNZnPHo0N36nb/Todo-List-for-Figma-projects-(Community)?node-id=1-230&t=7EC7oTHzV6akIwhA-0)">Template</a>. <br />
 
 <h2>Project Features</h2>
-The project has several features. 
+The project has several features that are worth paying attention to. 
 <h3>React</h3>
 <ul>
   <li>
