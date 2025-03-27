@@ -63,6 +63,6 @@ The app has 3 interesting features that are worth paying attention to:
     <b>No Empty Tasks. </b> Users will not have empty tasks or tasks with empty task fields, they will disappear.
   </li>
   <li>
-    <b>Automatic resizing of Fields. </b> The app uses <code>alt;textareaglt;</code> as task fields and their size changes as the user types texts.
+    <b>Automatic resizing of Fields. </b> The app uses <code>&lt;textarea&gt;</code> as task fields and their size changes as the user types texts.
   </li>
 </ul>
