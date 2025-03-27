@@ -40,23 +40,18 @@ The app has several features:
   <li>
     <b>Add Tasks. </b> Users can input new tasks to their list, facilitating effective task management.
   </li>
-  
   <li>
     <b>Modify Tasks. </b> Users can update tasks to add more details or correct mistakes.
   </li>
-  
   <li>
     <b>Mark Tasks. </b> Users can mark tasks as completed, helping to track progress.
   </li>
-  
   <li>
     <b>Toggle Modes. </b> Users can toggle dark/light modes, which enhances the user experience.
   </li>
-
   <li>
     <b>Notes. </b> The app allows users to add additional details related to task list.
   </li>
-  
   <li>
     <b>Persistent Storage. </b> The app implemented local storage that allows tasks, notes and theme mode option to be saved, ensuring users don't lose their settings upon closing the app.
   </li>
