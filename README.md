@@ -65,4 +65,7 @@ The app has 3 interesting features that are worth paying attention to:
   <li>
     <b>Automatic resizing of Fields. </b> The app uses <code>&lt;textarea&gt;</code> as task fields and their size changes as the user types texts.
   </li>
+  <li>
+    <b>Smooth Animations. </b> On marking tasks and changing theme modes the app smoothly changes its appearance, from background, text color to border and icon.
+  </li>
 </ul>
