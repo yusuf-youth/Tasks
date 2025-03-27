@@ -24,7 +24,7 @@ The project has several features that are worth paying attention to.
 <h3>Markup & Styles</h3>
 <ul>
   <li>
-    <b>BEM. </b>The project follows the BEM methodology for structuring SCSS, where each component is broken down into blocks, elements, and modifiers. This approach ensures that the code is modular, scalable, and easy to maintain.
+    <b>BEM. </b>The project follows the BEM methodology for structuring SCSS, where each component is broken down into <i>blocks</i>, <i>elements</i>, and <i>modifiers</i>. This approach ensures that the code is modular, scalable, and easy to maintain.
   </li>
   <li>
     <b>Global Styles. </b>The project has <i>_global.scss</i> for global styles, <i>_normalize.scss</i> for resetting default styles, <i>_mixins.scss</i> and <i>_media.scss</i> for comfortable styling and others.
