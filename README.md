@@ -5,7 +5,7 @@ The To-do App offers a straightforward interface for managing tasks, allowing us
 
 <h2>Project Features</h2>
 The project has several features:
-<h4>React</h4>
+<strong>React</strong>
 <ul>
   <li>
     <b>Components. </b> The app contains reusable components that can be used throughout the project.
