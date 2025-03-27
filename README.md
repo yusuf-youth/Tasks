@@ -73,3 +73,6 @@ The app has 4 interesting features that are worth paying attention to:
     <b>Smooth Animations. </b> On marking tasks and changing theme modes the app smoothly changes its appearance, from background, text color to border and icon.
   </li>
 </ul>
+
+<br />
+To wrap it up, the To-do App provides a clean and intuitive interface for task management, offering features like adding and marking tasks as complete with a focus on simplicity and usability. Built with 🎨SCSS and ⚛️React, it leverages reusable components, context for state management, and well-organized styles using BEM, CSS variables, and property grouping to ensure maintainability and readability of the project.
