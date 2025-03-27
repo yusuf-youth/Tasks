@@ -6,6 +6,7 @@ The To-do App offers a straightforward interface for managing tasks, allowing us
 <h2>Project Features</h2>
 The project has several features:
 <br />
+<br />
 <strong>React</strong>
 <ul>
   <li>
