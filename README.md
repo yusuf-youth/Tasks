@@ -54,7 +54,7 @@ The app has several features:
 </ul>
 
 <h3>Interesting Features</h3>
-The app has 3 interesting features that are worth paying attention to:
+The app has 4 interesting features that are worth paying attention to:
 <ul>
   <li>
     <b>Adding Tasks on Enter. </b> Users can add new tasks just pressing <code>Enter</code>, facilitating and improving UX.
