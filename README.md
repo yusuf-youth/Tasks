@@ -16,6 +16,9 @@ The project has several features that are worth paying attention to.
   <li>
     <b>Context. </b> The app uses context called <i>AppContext</i> that keeps todos and settings in a single, accessible state, eliminating Prop Drilling, improving code readability and for better performance.
   </li>
+  <li>
+    <b>Dynamic CSS Class Management. </b> The app conditionally adds or removes CSS classes based on component state, enabling features like marking tasks as complete, ensuring smooth UI transitions without directly accessing or manipulating DOM elements.
+  </li>
 </ul>
 
 <h3>Markup & Styles</h3>
