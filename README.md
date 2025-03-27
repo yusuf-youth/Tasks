@@ -24,6 +24,9 @@ The project has several features that are worth paying attention to.
 <h3>Markup & Styles</h3>
 <ul>
   <li>
+    <b>BEM. </b>The project is structured and built according to BEM methodology, so it's easy to maintain.
+  </li>
+  <li>
     <b>Global Styles. </b>The project has <i>_global.scss</i> for global styles, <i>_normalize.scss</i> for resetting default styles, <i>_mixins.scss</i> and <i>_media.scss</i> for comfortable styling and others.
   </li>
   <li>
@@ -31,9 +34,6 @@ The project has several features that are worth paying attention to.
   </li>
   <li>
     <b>CSS Variables. </b>The project uses css variables throughout styles ensuring maintainability, reusability, and consistency of the code.
-  </li>
-  <li>
-    <b>BEM. </b>The project is structured and built according to BEM methodology, so it's easy to maintain.
   </li>
   <li>
     <b>SCSS. </b>The project is written in the SCSS preprocessor and contains useful features such as mixins for comfortable styling.
