@@ -1,0 +1,26 @@
+.theme-toggle {
+  @include reset-button;
+  @include square(56px);
+  @include center-content(true);
+
+  --themeToggleBackgroundColor: var(--background-color-soft-blue);
+  --themeToggleBorder: var(--border-light-grey);
+
+  background-color: var(--themeToggleBackgroundColor);
+  border: var(--themeToggleBorder);
+  border-radius: var(--border-radius-alt);
+
+  &--dark {
+    --themeToggleBackgroundColor: var(--background-color-dark-alt);
+    --themeToggleBorder: var(--border-dark-grey);
+
+    svg {
+        color: var(--color-light);
+    }
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}

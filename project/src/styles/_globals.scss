@@ -1,0 +1,60 @@
+body {
+  @include fluid-text(16, 18);
+
+  font-family: var(--font-family);
+  font-weight: 500;
+  line-height: 1.24;
+  color: var(--slate-grey);
+  background-color: var(--color-light);
+  // background-color: var(--color-background-dark-theme);
+
+  &.is-dark {
+    background-color: var(--color-background-dark-theme);
+
+    h1 {
+      color: var(--color-light);
+    }
+  }
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-dark);
+}
+
+h1,
+.h1 {
+  @include fluid-text(36, 56);
+}
+
+h2,
+.h2 {
+  @include fluid-text(20, 24);
+
+  font-weight: 500;
+}
+
+h3,
+.h3 {
+  font-size: 16px;
+  font-weight: 700;
+}

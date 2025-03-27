@@ -1,0 +1,51 @@
+:root {
+  --color-light: #ffffff;
+  --color-light-alt: #ebebeb;
+  --color-dark: #000;
+  --color-dark-alt: #29292f;
+
+  --color-background-dark-theme: #141419;
+
+  --muted-blue: #9494b8;
+  --slate-grey: #575767;
+  --stone-grey: #666666;
+  --neutral-grey: #dadada;
+  --grey-blue: #a8a8b4;
+  --cool-gray-dark: #7d7d94;
+
+  --background-color-dark: #1e1f25;
+  --background-color-dark-alt: #24242d;
+  --background-color-soft-blue: #f2f3ff;
+
+  --background-light: linear-gradient(to right, #fcfcfc 0%, #f8f8f8 100%);
+  --background-dark: linear-gradient(to right, #2b2d37 0%, #262933 100%);
+
+  --border-light: 2px solid var(--neutral-grey);
+  --border-light-grey: 1px solid var(--color-light-alt);
+  --border-dark: 2px solid #0e0e11;
+  --border-dark-grey: 1px solid var(--color-dark-alt);
+
+  --border-divider-light: 1px solid var(--color-light-alt);
+  --border-divider-dark: 1px solid var(--color-dark-alt);
+
+  --border-radius: 5px;
+  --border-radius-alt: 6px;
+  --border-radius-large: 20px;
+
+  --font-family: "Inter", sans-serif;
+
+  --container-width: 505px;
+  --container-padding-x: 10px;
+
+  --checkmark-size: 24px;
+
+  --transition-duration: 0.2s;
+
+  @include tablet {
+    --checkmark-size: 28px;
+  }
+
+  @include mobile {
+    --container-width: 465px;
+  }
+}

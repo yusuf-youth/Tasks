@@ -1,0 +1,7 @@
+.App {
+  padding: 20px 10px;
+
+  @include mobile-above {
+    padding: 64px 10px;
+  }
+}

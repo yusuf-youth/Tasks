@@ -1,0 +1,108 @@
+.task {
+  --checkmarkTickDisplay: none;
+  --checkmarkBackground: none;
+  --checkmarkBorder: var(--border-light);
+  --checkmarkTickColor: var(--slate-grey);
+  --taskTextColor: var(--slate-grey);
+  --taskTextAreaBackgroundColor: var(--background-color-textarea-light);
+  --taskAfterBackgroundColor: var(--color-light-alt);
+
+  position: relative;
+  display: flex;
+  align-items: start;
+  column-gap: 10px;
+  padding-block: 10px;
+  user-select: none;
+
+  @include mobile {
+    padding-block: 8px;
+  }
+
+  &--dark {
+    --checkmarkBackground: var(--background-dark);
+    --checkmarkBorder: var(--border-dark);
+    --taskTextColor: var(--neutral-grey);
+    --checkmarkTickColor: var(--neutral-grey);
+    --taskTextAreaBackgroundColor: var(--background-color-textarea-dark);
+    --taskAfterBackgroundColor: var(--color-dark-alt);
+
+    &.is-completed {
+      .task__text {
+        color: var(--cool-gray-dark);
+      }
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+
+  &.is-completed {
+    --checkmarkTickDisplay: block;
+    --taskTextColor: var(--grey-blue);
+
+    animation: fade var(--transition-duration) 1s forwards;
+  }
+
+  &__checkmark {
+    @include reset-button;
+    @include square(var(--checkmark-size));
+    @include center-content(true); 
+
+    position: relative;
+  }
+
+  &__checkbox {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    appearance: none;
+    border: var(--checkmarkBorder);
+    background: var(--checkmarkBackground);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition-duration: 0s;
+
+    @include mobile-s {
+      // border-radius: 50%;
+    }
+  }
+
+  &__tick {
+    @include square(40%);
+    @include absolute-centered;
+
+    display: var(--checkmarkTickDisplay);
+    fill: none;
+    cursor: pointer;
+    color: var(--checkmarkTickColor);
+  }
+
+  &__textarea {
+    width: 100%;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    background-color: transparent;
+    color: inherit;
+    color: var(--taskTextColor);
+    border: none;
+    outline: none;
+    resize: none;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.9;
+  }
+
+  90% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
