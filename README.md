@@ -11,6 +11,9 @@ The project has several features that are worth paying attention to.
     <b>Components. </b> The app contains reusable components that can be used throughout the project.
   </li>
   <li>
+    <b>React Hooks. </b> The app makes use of React hooks like <code>useState</code>, <code>useEffect</code>, <code>useRef</code> and <code>useContext</code> to manage component state, handle side effects, and manage global state efficiently, improving code simplicity and performance.
+  </li>
+  <li>
     <b>Context. </b> The app uses context called <i>AppContext</i> that keeps todos and settings in a single, accessible state, eliminating Prop Drilling, improving code readability and for better performance.
   </li>
 </ul>
