@@ -73,7 +73,7 @@ The app has 4 interesting features that are worth paying attention to:
     <b>No Empty Tasks. </b> Users will not have empty tasks or tasks with empty task fields, they will disappear.
   </li>
   <li>
-    <b>Automatic resizing of Fields. </b> The app uses <code>&lt;textarea&gt;</code> as task fields and their size changes as the user types texts.
+    <b>Automatic Resizing of Fields. </b> The app uses <code>&lt;textarea&gt;</code> as task fields and their size changes as the user types texts.
   </li>
   <li>
     <b>Smooth Animations. </b> On marking tasks and changing theme modes the app smoothly changes its appearance, from background, text color to border and icon.
@@ -81,4 +81,4 @@ The app has 4 interesting features that are worth paying attention to:
 </ul>
 
 <br />
-To wrap it up, the To-do App provides a clean and intuitive interface for task management, offering features like adding and marking tasks as complete with a focus on simplicity and usability. Built with 🎨SCSS and ⚛️React, it leverages reusable components, context for state management, and well-organized styles using BEM, CSS variables, and property grouping to ensure maintainability and readability of the project.
+To wrap it up, the Tasks provides a clean and intuitive interface for task management, offering features like adding and marking tasks as complete with a focus on simplicity and usability. Built with 🎨SCSS and ⚛️React, it leverages reusable components, context for state management, and well-organized styles using BEM, CSS variables, and property grouping to ensure maintainability and readability of the project.
