@@ -1,7 +1,7 @@
 <img src="https://startinfinity.s3.us-east-2.amazonaws.com/production/blog/post/15/main/xXMabYYezGITsPPA8PduAZXEmXvz0Xr71FEQGqy4.png" width="500" />
 <br />
 
-The To-do App offers a straightforward interface for managing tasks, allowing users to add, delete, and mark tasks as complete and others. This simplicity ensures that users can focus on their tasks without unnecessary distractions. The app was built with 🎨SCSS and ⚛️React. Built from a Figma template, this project aims to demonstrate my ability to convert design concepts into functional, accessible web apps. <a href="https://yusuf-youth.github.io/Todo-App/">App</a>, <a href="https://www.figma.com/design/wsOmjs3YZUNZnPHo0N36nb/Todo-List-for-Figma-projects-(Community)?node-id=1-230&t=7EC7oTHzV6akIwhA-0">Template</a>. <br />
+The To-do App offers a straightforward interface for managing tasks, allowing users to add, delete, and mark tasks as complete and others. This simplicity ensures that users can focus on their tasks without unnecessary distractions. The app was built with 🎨SCSS and ⚛️React. Built from a Figma template, this project aims to demonstrate my ability to convert design concepts into functional, accessible web apps. <a href="https://yusuf-youth.github.io/Tasks/">App</a>, <a href="https://www.figma.com/design/wsOmjs3YZUNZnPHo0N36nb/Todo-List-for-Figma-projects-(Community)?node-id=1-230&t=7EC7oTHzV6akIwhA-0">Template</a>. <br />
 
 <h2>Project Features</h2>
 The project has several features that are worth paying attention to. 
