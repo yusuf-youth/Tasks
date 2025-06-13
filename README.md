@@ -17,6 +17,9 @@ The project has several features that are worth paying attention to.
     <b>Context. </b> The app uses context called <i>AppContext</i> that keeps todos and settings in a single, accessible state, eliminating Prop Drilling, improving code readability and for better performance.
   </li>
   <li>
+    <b>useReducer. </b> The app uses React’s useReducer hook to manage the state of tasks: add, delete and edit. It provides a clean and scalable way to handle multiple related actions in one place.
+  </li>
+  <li>
     <b>Dynamic CSS Class Management. </b> The app conditionally adds or removes CSS classes based on component state, enabling features like marking tasks as complete, ensuring smooth UI transitions without directly accessing or manipulating DOM elements.
   </li>
 </ul>
@@ -64,13 +67,16 @@ The app has several features:
 </ul>
 
 <h3>Interesting Features</h3>
-The app has 4 interesting features that are worth paying attention to:
+The app has 5 interesting features that are worth paying attention to:
 <ul>
   <li>
     <b>Adding Tasks on Enter. </b> Users can add new tasks just pressing <code>Enter</code>, facilitating and improving UX.
   </li>
   <li>
     <b>No Empty Tasks. </b> Users will not have empty tasks or tasks with empty task fields, they will disappear.
+  </li>
+  <li>
+    <b>Fallback Text. </b> When there are no tasks in the list, the app displays a "No Tasks" message to inform the user. This improves usability by providing clear feedback instead of showing an empty list.
   </li>
   <li>
     <b>Automatic Resizing of Fields. </b> The app uses <code>&lt;textarea&gt;</code> as task fields and their size changes as the user types texts.
