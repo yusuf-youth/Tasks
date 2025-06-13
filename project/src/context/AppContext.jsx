@@ -1,52 +1,83 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useMemo, useReducer, useState } from "react";
 
-const DARK_MODE = "DARK MODE";
-const TASKS = "TASKS";
-const NOTES = "NOTES";
+const STORAGE_KEYS = {
+  DARK_MODE: "DARK MODE",
+  TASKS: "TASKS",
+  NOTES: "NOTES",
+};
+
+export const ACTIONS = {
+  ADD: "ADD",
+  DELETE: "DELETE",
+  EDIT: "EDIT",
+};
+
+function taskReducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.ADD:
+      return [...state, action.payload];
+    case ACTIONS.DELETE:
+      return state.filter((task) => task.id !== action.payload);
+    case ACTIONS.EDIT:
+      return state.map((task) =>
+        task.id === action.payload.id
+          ? { ...task, text: action.payload.text }
+          : task
+      );
+    default:
+      return state;
+  }
+}
+
+const getFromStorage = (key, fallback) => {
+  try {
+    return JSON.parse(localStorage.getItem(key)) ?? fallback;
+  } catch {
+    return fallback;
+  }
+};
 
 export const AppContext = createContext({
-  isDarkMode: null,
-  setDarkMode: null,
-  tasks: null,
-  setTasks: null,
-  notes: null,
-  setNotes: null,
+  isDarkMode: false,
+  setDarkMode: () => {},
+  tasks: [],
+  dispatchTasks: () => {},
+  notes: "",
+  setNotes: () => {},
 });
 
 export function AppContextProvider({ children }) {
-  const [isDarkMode, setDarkMode] = useState(() => {
-    const isDarkMode = JSON.parse(localStorage.getItem(DARK_MODE));
+  const [isDarkMode, setDarkMode] = useState(() =>
+    getFromStorage(STORAGE_KEYS.DARK_MODE, false)
+  );
 
-    if (isDarkMode) return isDarkMode;
-    else return false;
-  });
-  const [tasks, setTasks] = useState(() => {
-    const tasks = JSON.parse(localStorage.getItem(TASKS));
+  const [tasks, dispatchTasks] = useReducer(taskReducer, [], () =>
+    getFromStorage(STORAGE_KEYS.TASKS, [{ id: 0, text: "A task item example" }])
+  );
 
-    if (tasks) return tasks;
-    else return [{ id: 0, text: "A task item example" }];
-  });
-  const [notes, setNotes] = useState(() => {
-    const notes = JSON.parse(localStorage.getItem(NOTES));
-
-    if (notes) return notes;
-    else return "";
-  });
+  const [notes, setNotes] = useState(() =>
+    getFromStorage(STORAGE_KEYS.NOTES, "")
+  );
 
   useEffect(() => {
-    localStorage.setItem(DARK_MODE, JSON.stringify(isDarkMode));
-    localStorage.setItem(TASKS, JSON.stringify(tasks));
-    localStorage.setItem(NOTES, JSON.stringify(notes));
-  }, [tasks, notes, isDarkMode]);
+    localStorage.setItem(STORAGE_KEYS.DARK_MODE, JSON.stringify(isDarkMode));
+    localStorage.setItem(STORAGE_KEYS.TASKS, JSON.stringify(tasks));
+    localStorage.setItem(STORAGE_KEYS.NOTES, JSON.stringify(notes));
+  }, [isDarkMode, tasks, notes]);
 
-  const values = {
-    isDarkMode,
-    setDarkMode,
-    tasks,
-    setTasks,
-    notes,
-    setNotes,
-  };
+  const contextValue = useMemo(
+    () => ({
+      isDarkMode,
+      setDarkMode,
+      tasks,
+      dispatchTasks,
+      notes,
+      setNotes,
+    }),
+    [isDarkMode, tasks, notes]
+  );
 
-  return <AppContext.Provider value={values}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
+  );
 }

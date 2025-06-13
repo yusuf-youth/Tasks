@@ -1,19 +1,24 @@
+import { useContext, useEffect } from "react";
 import AddTask from "./components/AddTask";
 import Header from "./components/Header";
 import Notes from "./components/Notes";
 import TaskList from "./components/TaskList";
-import { AppContextProvider } from "./context/AppContext";
+import { AppContext } from "./context/AppContext";
 
 function App() {
+  const { isDarkMode } = useContext(AppContext);
+
+  useEffect(() => {
+    document.body.classList.toggle("is-dark", isDarkMode);
+  }, [isDarkMode]);
+
   return (
-    <AppContextProvider>
-      <div className="App container">
-        <Header />
-        <Notes />
-        <TaskList />
-        <AddTask />
-      </div>
-    </AppContextProvider>
+    <div className="App container">
+      <Header />
+      <Notes />
+      <TaskList />
+      <AddTask />
+    </div>
   );
 }
 

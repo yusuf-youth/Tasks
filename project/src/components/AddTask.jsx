@@ -1,22 +1,25 @@
-import React, { useContext, useRef, useState } from "react";
-import { AppContext } from "../context/AppContext";
+import { useContext, useState } from "react";
+import { ACTIONS, AppContext } from "../context/AppContext";
 
 function AddTask() {
-  const { isDarkMode, setTasks } = useContext(AppContext);
+  const { isDarkMode, dispatchTasks } = useContext(AppContext);
   const [inputText, setInputText] = useState("");
-  const buttonRef = useRef();
 
   function addTask() {
-    if (!inputText) return;
+    const trimmedText = inputText.trim();
+    if (!trimmedText) return;
 
-    const generatedId = Math.random() * 100;
-    setTasks((tasks) => [...tasks, { id: generatedId, text: inputText }]);
+    const generatedId = Date.now();
+    dispatchTasks({
+      type: ACTIONS.ADD,
+      payload: { id: generatedId, text: trimmedText },
+    });
     setInputText("");
   }
 
   return (
     <form
-      className={`add-task ${isDarkMode && "add-task--dark"}`}
+      className={`add-task ${isDarkMode ? "add-task--dark" : ""}`}
       onSubmit={(e) => {
         e.preventDefault();
         addTask();
@@ -28,16 +31,14 @@ function AddTask() {
         placeholder="Add a task..."
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
+        aria-label="Task input"
       />
 
       <button
-        ref={buttonRef}
-        className={`add-task__button ${!inputText && "is-disabled"}`}
-        type="button"
-        onClick={() => {
-          addTask();
-          buttonRef.current.classList.add("is-disabled");
-        }}
+        className={`add-task__button ${!inputText.trim() ? "is-disabled" : ""}`}
+        type="submit"
+        disabled={!inputText.trim()}
+        aria-label="Add task"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

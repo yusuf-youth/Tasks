@@ -1,27 +1,32 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import Task from "./Task";
 import { AppContext } from "../context/AppContext";
 
 function TaskList() {
-  const { isDarkMode } = useContext(AppContext);
-  const { tasks } = useContext(AppContext);
+  const { isDarkMode, tasks } = useContext(AppContext);
 
-  function renderTasks(tasks) {
-    return tasks.map(({ id, text }, index) => (
-      <li key={id} className="task-list__item">
-        {tasks.length - 1 !== index ? (
-          <div>
-            <Task key={id} id={id} text={text} />
-            <hr className={`hr ${isDarkMode && "hr--dark"}`} />
-          </div>
-        ) : (
-          <Task key={id} id={id} text={text} />
-        )}
-      </li>
-    ));
+  if (!tasks || tasks.length === 0) {
+    return (
+      <div className={`no-tasks${isDarkMode ? " no-tasks--dark" : ""}`}>
+        No Tasks
+      </div>
+    );
   }
 
-  return <ul className="task-list">{renderTasks(tasks)}</ul>;
+  return (
+    <ul className="task-list">
+      {tasks.map(({ id, text }, index) => {
+        const isLast = index === tasks.length - 1;
+
+        return (
+          <li key={id} className="task-list__item">
+            <Task id={id} text={text} />
+            {!isLast && <hr className={`hr${isDarkMode ? " hr--dark" : ""}`} />}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 export default TaskList;

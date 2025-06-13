@@ -1,47 +1,54 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { AppContext } from "../context/AppContext";
+import { useContext, useEffect, useRef, useState } from "react";
+import { ACTIONS, AppContext } from "../context/AppContext";
 
 function Task({ id, text }) {
-  const { isDarkMode, tasks, setTasks } = useContext(AppContext);
+  const { isDarkMode, dispatchTasks } = useContext(AppContext);
   const [isTaskCompleted, setTaskCompleted] = useState(false);
-  const [textareaValue, setTextAreaValue] = useState(
-    tasks.find((task) => task.id === id).text
-  );
+  const [textareaValue, setTextAreaValue] = useState(text);
   const textareaRef = useRef();
+  const deleteTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    setTextAreaValue(text);
+  }, [text]);
+
+  useEffect(() => {
+    return () => {
+      if (deleteTimeoutRef.current) clearTimeout(deleteTimeoutRef.current);
+    };
+  }, []);
 
   function onClick() {
-    setTaskCompleted((checked) => !checked);
+    setTaskCompleted(true);
 
-    setTimeout(() => {
-      setTasks((tasks) => tasks.filter((task) => task.id !== id));
+    deleteTimeoutRef.current = setTimeout(() => {
+      dispatchTasks({ type: ACTIONS.DELETE, payload: id });
     }, 1200);
   }
 
   function onChange(e) {
-    setTextAreaValue(e.target.value);
+    const newValue = e.target.value;
+    setTextAreaValue(newValue);
     adjustHeight();
 
-    setTasks((tasks) => {
-      return tasks.map((task) => {
-        if (task.id === id) {
-          task.text = e.target.value;
-        }
-
-        return task;
-      });
+    dispatchTasks({
+      type: ACTIONS.EDIT,
+      payload: { id, text: newValue },
     });
 
-    if (e.target.value === '') {
-      setTimeout(() => {
-        setTasks((tasks) => tasks.filter((task) => task.id !== id));
+    if (newValue.trim() === "") {
+      deleteTimeoutRef.current = setTimeout(() => {
+        dispatchTasks({ type: ACTIONS.DELETE, payload: id });
       }, 800);
     }
   }
 
   const adjustHeight = () => {
     const textarea = textareaRef.current;
-    textarea.style.height = "auto";
-    textarea.style.height = textarea.scrollHeight + "px";
+    if (textarea) {
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    }
   };
 
   useEffect(() => {
@@ -50,14 +57,18 @@ function Task({ id, text }) {
 
   return (
     <div
-      id={id}
-      className={`task ${isDarkMode && "task--dark"} ${
-        isTaskCompleted && "is-completed is-disabled"
+      id={`task-${id}`}
+      className={`task ${isDarkMode ? "task--dark" : ""} ${
+        isTaskCompleted ? "is-completed is-disabled" : ""
       }`}
     >
-      <button className="task__checkmark" onClick={onClick}>
-        <input className="task__checkbox" type="checkbox" />
-
+      <label className="task__checkmark" aria-label="Mark task completed">
+        <input
+          type="checkbox"
+          checked={isTaskCompleted}
+          onChange={onClick}
+          className="task__checkbox"
+        />
         <svg
           className="task__tick"
           width="10"
@@ -73,17 +84,16 @@ function Task({ id, text }) {
             strokeLinejoin="round"
           />
         </svg>
-      </button>
+      </label>
 
       <textarea
-        className={`task__textarea `}
+        className="task__textarea"
         ref={textareaRef}
         rows={1}
         value={textareaValue}
         onChange={onChange}
-      >
-        {text}
-      </textarea>
+        aria-label="Task text"
+      />
     </div>
   );
 }

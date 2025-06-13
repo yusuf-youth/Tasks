@@ -1,0 +1,11 @@
+.no-tasks {
+  @include center-content;
+
+  height: 200px;
+  font-size: 20px;
+  color: var(--muted-blue);
+
+  &--dark {
+    color: var(--slate-grey);
+  }
+}

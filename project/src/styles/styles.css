@@ -396,7 +396,7 @@ h3,
 .add-task__input {
   width: 100%;
   height: 100%;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--addTaskInputColor);
   background-color: transparent;
   border: none;
@@ -585,4 +585,16 @@ h3,
 }
 .hr--dark {
   border-top: 0.5px solid var(--color-dark-alt) !important;
+}
+
+.no-tasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 20px;
+  color: var(--muted-blue);
+}
+.no-tasks--dark {
+  color: var(--slate-grey);
 }/*# sourceMappingURL=styles.css.map */
