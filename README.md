@@ -86,4 +86,4 @@ The app has 5 interesting features that are worth paying attention to:
   </li>
 </ul>
 
-To wrap it up, the Tasks provides a clean and intuitive interface for task management, offering features like adding and marking tasks as complete with a focus on simplicity and usability. Built with 🎨SCSS and ⚛️React, it leverages reusable components, context for state management, and well-organized styles using BEM, CSS variables, and property grouping to ensure maintainability and readability of the project.
+To wrap it up, the Tasks provides a clean and intuitive interface for task management, offering features like adding and marking tasks as complete with a focus on simplicity and usability.
