@@ -16,8 +16,8 @@ function App() {
     <div className="App container">
       <Header />
       <Notes />
-      <TaskList />
       <AddTask />
+      <TaskList />
     </div>
   );
 }
