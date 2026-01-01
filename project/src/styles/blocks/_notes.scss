@@ -5,10 +5,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 5px;
-  margin-bottom: 22px;
-  padding-bottom: 15px;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
   color: var(--notesColor);
-  border-bottom: var(--notesBorderBottom);
+  // border-bottom: var(--notesBorderBottom);
   overflow: hidden;
 
   @include mobile {

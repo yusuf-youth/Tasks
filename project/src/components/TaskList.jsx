@@ -1,5 +1,7 @@
 import Task from "./Task";
 import { useAppContext } from "../hooks/useAppContext";
+import Divider from "./Divider";
+import { Fragment } from "react";
 
 function TaskList() {
   const { isDarkMode, tasks } = useAppContext();
@@ -18,12 +20,12 @@ function TaskList() {
         const isNotLast = (index === tasks.length - 1) === false;
 
         return (
-          <li key={id} className="task-list__item">
-            <Task id={id} text={text} />
-            {isNotLast && (
-              <hr className={`hr${isDarkMode ? " hr--dark" : ""}`} />
-            )}
-          </li>
+          <Fragment key={id}>
+            <li key={id} className="task-list__item">
+              <Task id={id} text={text} />
+            </li>
+            {isNotLast && <Divider offsetLeft />}
+          </Fragment>
         );
       })}
     </ul>

@@ -11,12 +11,8 @@
   display: flex;
   align-items: start;
   column-gap: 10px;
-  padding-block: 10px;
+  padding-block: 2px;
   user-select: none;
-
-  @include mobile {
-    padding-block: 8px;
-  }
 
   &--dark {
     --checkmarkBackground: var(--background-dark);
@@ -47,7 +43,7 @@
   &__checkmark {
     @include reset-button;
     @include square(var(--checkmark-size));
-    @include center-content(true); 
+    @include center-content(true);
 
     position: relative;
   }
@@ -81,9 +77,9 @@
   &__textarea {
     width: 100%;
     padding: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 22px;
     background-color: transparent;
     color: inherit;
     color: var(--taskTextColor);

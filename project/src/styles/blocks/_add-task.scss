@@ -2,16 +2,22 @@
   --addTaskSvgColor: var(--slate-grey);
   --addTaskInputColor: var(--color-dark);
 
-  position: fixed;
-  bottom: 10px;
+  position: relative;
   max-width: var(--container-width);
   width: 100%;
+  margin-bottom: 25px;
   padding: 8px 15px;
   padding-right: 35px;
   overflow: hidden;
   background-color: var(--color-light);
   border: var(--border-light);
   border-radius: var(--border-radius-large);
+
+  @include mobile {
+    position: fixed;
+    bottom: 10px;
+    margin-bottom: 0;
+  }
 
   @include mobile-s {
     max-width: calc(100vw - var(--container-padding-x) * 2);
