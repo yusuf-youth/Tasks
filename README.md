@@ -1,4 +1,4 @@
-<img src="assets/app.png" width="600" />
+<img src="cover.png" width="600" />
 
 The Tasks app offers a straightforward interface for managing tasks, allowing users to add, delete, and mark tasks as complete and others. This simplicity ensures that users can focus on their tasks without unnecessary distractions. The app was built with 🎨SCSS and ⚛️React. <a href="https://yusuf-youth.github.io/Tasks/">App</a>, <a href="https://www.figma.com/design/wsOmjs3YZUNZnPHo0N36nb/Todo-List-for-Figma-projects-(Community)?node-id=1-230&t=7EC7oTHzV6akIwhA-0">Template</a>. 
 <br />
