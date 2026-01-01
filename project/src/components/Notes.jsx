@@ -1,8 +1,8 @@
-import { useContext, useEffect, useRef } from "react";
-import { AppContext } from "../context/AppContext";
+import { useEffect, useRef } from "react";
+import { useAppContext } from "../hooks/useAppContext";
 
 function Notes() {
-  const { isDarkMode, notes, setNotes } = useContext(AppContext);
+  const { isDarkMode, notes, setNotes } = useAppContext();
   const textareaRef = useRef(null);
 
   const onChange = (e) => {
@@ -21,7 +21,7 @@ function Notes() {
 
   useEffect(() => {
     adjustHeight();
-  }, [notes]); 
+  }, [notes]);
 
   return (
     <div className={`notes ${isDarkMode ? " notes--dark" : ""}`}>

@@ -4,13 +4,10 @@ import Header from "./components/Header";
 import Notes from "./components/Notes";
 import TaskList from "./components/TaskList";
 import { useAppContext } from "./hooks/useAppContext";
+import useDarkMode from "./hooks/useDarkMode";
 
 function App() {
-  const { isDarkMode } = useAppContext();
-
-  useEffect(() => {
-    document.body.classList.toggle("is-dark", isDarkMode);
-  }, [isDarkMode]);
+  useDarkMode();
 
   return (
     <div className="App container">

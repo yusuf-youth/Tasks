@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import Task from "./Task";
-import { AppContext } from "../context/AppContext";
+import { useAppContext } from "../hooks/useAppContext";
 
 function TaskList() {
-  const { isDarkMode, tasks } = useContext(AppContext);
+  const { isDarkMode, tasks } = useAppContext();
 
   if (!tasks || tasks.length === 0) {
     return (
@@ -16,12 +15,14 @@ function TaskList() {
   return (
     <ul className="task-list">
       {tasks.map(({ id, text }, index) => {
-        const isLast = index === tasks.length - 1;
+        const isNotLast = (index === tasks.length - 1) === false;
 
         return (
           <li key={id} className="task-list__item">
             <Task id={id} text={text} />
-            {!isLast && <hr className={`hr${isDarkMode ? " hr--dark" : ""}`} />}
+            {isNotLast && (
+              <hr className={`hr${isDarkMode ? " hr--dark" : ""}`} />
+            )}
           </li>
         );
       })}
