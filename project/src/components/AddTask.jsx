@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
-import { ACTIONS, AppContext } from "../context/AppContext";
+import { AppContext } from "../context/AppContext";
+import { ACTIONS } from "../script/constant";
 
 function AddTask() {
   const { isDarkMode, dispatchTasks } = useContext(AppContext);

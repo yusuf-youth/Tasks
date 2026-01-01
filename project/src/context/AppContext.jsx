@@ -1,16 +1,5 @@
 import { createContext, useEffect, useMemo, useReducer, useState } from "react";
-
-const STORAGE_KEYS = {
-  DARK_MODE: "DARK MODE",
-  TASKS: "TASKS",
-  NOTES: "NOTES",
-};
-
-export const ACTIONS = {
-  ADD: "ADD",
-  DELETE: "DELETE",
-  EDIT: "EDIT",
-};
+import { ACTIONS, STORAGE_KEYS } from "../script/constant";
 
 function taskReducer(state, action) {
   switch (action.type) {
