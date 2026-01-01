@@ -1,21 +1,28 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import { AppContext } from "../context/AppContext";
-import { ACTIONS } from "../script/constant";
+import { useEffect, useRef, useState } from "react";
+import { useAppContext } from "../hooks/useAppContext";
+import { TickIcon } from "../script/icons";
 
 function Task({ id, text }) {
-  const { isDarkMode, dispatchTasks } = useContext(AppContext);
+  const { isDarkMode, deleteTask, editTask } = useAppContext();
   const [isTaskCompleted, setTaskCompleted] = useState(false);
   const [textareaValue, setTextAreaValue] = useState(text);
   const textareaRef = useRef();
   const deleteTimeoutRef = useRef(null);
+  const modifierClass = `${isDarkMode ? "task--dark" : ""} ${
+    isTaskCompleted ? "is-completed is-disabled" : ""
+  }`;
 
   useEffect(() => {
     setTextAreaValue(text);
   }, [text]);
 
   useEffect(() => {
+    adjustHeight();
+
     return () => {
-      if (deleteTimeoutRef.current) clearTimeout(deleteTimeoutRef.current);
+      if (deleteTimeoutRef.current) {
+        clearTimeout(deleteTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -23,23 +30,20 @@ function Task({ id, text }) {
     setTaskCompleted(true);
 
     deleteTimeoutRef.current = setTimeout(() => {
-      dispatchTasks({ type: ACTIONS.DELETE, payload: id });
+      deleteTask(id);
     }, 1200);
   }
 
   function onChange(e) {
     const newValue = e.target.value;
+
     setTextAreaValue(newValue);
     adjustHeight();
-
-    dispatchTasks({
-      type: ACTIONS.EDIT,
-      payload: { id, text: newValue },
-    });
+    editTask(id, newValue);
 
     if (newValue.trim() === "") {
       deleteTimeoutRef.current = setTimeout(() => {
-        dispatchTasks({ type: ACTIONS.DELETE, payload: id });
+        deleteTask(id);
       }, 800);
     }
   }
@@ -52,17 +56,8 @@ function Task({ id, text }) {
     }
   };
 
-  useEffect(() => {
-    adjustHeight();
-  }, []);
-
   return (
-    <div
-      id={`task-${id}`}
-      className={`task ${isDarkMode ? "task--dark" : ""} ${
-        isTaskCompleted ? "is-completed is-disabled" : ""
-      }`}
-    >
+    <div id={`task-${id}`} className={`task ${modifierClass}`}>
       <label className="task__checkmark" aria-label="Mark task completed">
         <input
           type="checkbox"
@@ -70,21 +65,7 @@ function Task({ id, text }) {
           onChange={onClick}
           className="task__checkbox"
         />
-        <svg
-          className="task__tick"
-          width="10"
-          height="10"
-          viewBox="0 0 10 10"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1 6L3.91667 9L9 1"
-            stroke="#575767"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <TickIcon className="task__tick" />
       </label>
 
       <textarea

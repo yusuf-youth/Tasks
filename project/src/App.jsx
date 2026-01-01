@@ -1,12 +1,12 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import AddTask from "./components/AddTask";
 import Header from "./components/Header";
 import Notes from "./components/Notes";
 import TaskList from "./components/TaskList";
-import { AppContext } from "./context/AppContext";
+import { useAppContext } from "./hooks/useAppContext";
 
 function App() {
-  const { isDarkMode } = useContext(AppContext);
+  const { isDarkMode } = useAppContext();
 
   useEffect(() => {
     document.body.classList.toggle("is-dark", isDarkMode);
