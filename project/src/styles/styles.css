@@ -156,7 +156,7 @@ svg * {
   --background-color-soft-blue: #f2f3ff;
   --background-light: linear-gradient(to right, #fcfcfc 0%, #f8f8f8 100%);
   --background-dark: linear-gradient(to right, #2b2d37 0%, #262933 100%);
-  --border-light: 2px solid var(--neutral-grey);
+  --border-light: 2px solid var(--grey-blue);
   --border-light-grey: 1px solid var(--color-light-alt);
   --border-dark: 2px solid #0e0e11;
   --border-dark-grey: 1px solid var(--color-dark-alt);
@@ -170,11 +170,6 @@ svg * {
   --container-padding-x: 10px;
   --checkmark-size: 24px;
   --transition-duration: 0.2s;
-}
-@media (max-width: 1023px) {
-  :root {
-    --checkmark-size: 28px;
-  }
 }
 @media (max-width: 767px) {
   :root {
@@ -318,7 +313,7 @@ h3,
 }
 
 .notes {
-  --notesColor: var(--slate-grey);
+  --notesColor: var(--background-color-dark);
   --notesBorderBottom: var(--border-divider-light);
   display: flex;
   flex-direction: column;
@@ -327,11 +322,6 @@ h3,
   padding-bottom: 5px;
   color: var(--notesColor);
   overflow: hidden;
-}
-@media (max-width: 767px) {
-  .notes {
-    margin-bottom: 15px;
-  }
 }
 .notes--dark {
   --notesColor: var(--muted-blue);
@@ -362,12 +352,12 @@ h3,
 
 .add-task {
   --addTaskSvgColor: var(--slate-grey);
-  --addTaskInputColor: var(--color-dark);
+  --addTaskInputColor: var(--background-color-dark);
   position: relative;
   max-width: var(--container-width);
   width: 100%;
   margin-bottom: 25px;
-  padding: 8px 15px;
+  padding: 7px 14px;
   padding-right: 35px;
   overflow: hidden;
   background-color: var(--color-light);
@@ -388,7 +378,7 @@ h3,
   }
 }
 .add-task:focus-within {
-  --addTaskSvgColor: var(--color-dark);
+  --addTaskSvgColor: var(--color-dark-alt);
 }
 .add-task--dark:focus-within {
   --addTaskSvgColor: var(--neutral-grey);
@@ -418,7 +408,7 @@ h3,
   transition-duration: var(--transition-duration);
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 6px;
   translate: 0 -50%;
 }
 @media (hover: hover) {
@@ -439,8 +429,8 @@ h3,
   opacity: 1;
 }
 .add-task__button svg {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   color: var(--addTaskSvgColor);
   transition-property: color;
   transition-duration: var(--transition-duration);
@@ -451,7 +441,7 @@ h3,
   --checkmarkBackground: none;
   --checkmarkBorder: var(--border-light);
   --checkmarkTickColor: var(--slate-grey);
-  --taskTextColor: var(--slate-grey);
+  --taskTextColor: var(--background-color-dark);
   --taskTextAreaBackgroundColor: var(--background-color-textarea-light);
   --taskAfterBackgroundColor: var(--color-light-alt);
   position: relative;
@@ -579,8 +569,8 @@ h3,
   border: none !important;
 }
 .divider--offset-left {
-  margin-left: 35px;
-  width: calc(100% - 35px);
+  margin-left: 33px;
+  width: calc(100% - 33px);
 }
 .divider--offset-bottom {
   margin-bottom: 15px;

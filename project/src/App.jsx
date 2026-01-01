@@ -14,7 +14,6 @@ function App() {
       <Notes />
       <Divider offsetBottom />
       <AddTask />
-      {/* <Divider offsetBottom /> */}
       <TaskList />
     </div>
   );

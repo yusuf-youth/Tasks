@@ -16,15 +16,13 @@ function TaskList() {
 
   return (
     <ul className="task-list">
-      {tasks.map(({ id, text }, index) => {
-        const isNotLast = (index === tasks.length - 1) === false;
-
+      {tasks.map(({ id, text }) => {
         return (
           <Fragment key={id}>
-            <li key={id} className="task-list__item">
+            <li className="task-list__item">
               <Task id={id} text={text} />
             </li>
-            {isNotLast && <Divider offsetLeft />}
+            <Divider offsetLeft />
           </Fragment>
         );
       })}

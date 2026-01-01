@@ -20,7 +20,7 @@
   --background-light: linear-gradient(to right, #fcfcfc 0%, #f8f8f8 100%);
   --background-dark: linear-gradient(to right, #2b2d37 0%, #262933 100%);
 
-  --border-light: 2px solid var(--neutral-grey);
+  --border-light: 2px solid var(--grey-blue);
   --border-light-grey: 1px solid var(--color-light-alt);
   --border-dark: 2px solid #0e0e11;
   --border-dark-grey: 1px solid var(--color-dark-alt);
@@ -42,7 +42,7 @@
   --transition-duration: 0.2s;
 
   @include tablet {
-    --checkmark-size: 28px;
+    // --checkmark-size: 26px;
   }
 
   @include mobile {

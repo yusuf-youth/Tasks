@@ -1,5 +1,5 @@
 .notes {
-  --notesColor: var(--slate-grey);
+  --notesColor: var(--background-color-dark);
   --notesBorderBottom: var(--border-divider-light);
 
   display: flex;
@@ -8,12 +8,7 @@
   margin-bottom: 0px;
   padding-bottom: 5px;
   color: var(--notesColor);
-  // border-bottom: var(--notesBorderBottom);
   overflow: hidden;
-
-  @include mobile {
-    margin-bottom: 15px;
-  }
 
   &--dark {
     --notesColor: var(--muted-blue);
